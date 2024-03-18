@@ -1,0 +1,95 @@
+  @use "../../../sass/abstracts" as *;
+
+  .pagination {
+    margin-top: 70px;
+    @include flexbox(row, center, center);
+    gap: 30px;
+
+    ul {
+      @include flexbox(row, center, center);
+      gap: 30px;
+
+      .active-page {
+        width: 50px;
+        height: 50px;
+        background: #B88E2F;
+        @include flexbox(row, center, center);
+        border-radius: 10px;
+        font-family: Poppins;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 30px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: white;
+      }
+
+      li {
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        background: #F9F1E7;
+        @include flexbox(row, center, center);
+        border-radius: 10px;
+        font-family: Poppins;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 30px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: black;
+      }
+    }
+
+    .next,
+    .prev {
+      width: 100px;
+      height: 50px;
+      background: #F9F1E7;
+      border: none;
+      @include flexbox(row, center, center);
+      border-radius: 10px;
+      font-family: Poppins;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 30px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: black;
+      outline: none;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        background: #B88E2F;
+        color: white;
+      }
+    }
+
+    @media(max-width: 600px) {
+      gap: 20px;
+
+      ul {
+        gap: 20px;
+
+        li {
+          width: 35px;
+          height: 35px;
+          font-size: 16px;
+        }
+
+        .active-page {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      .next,
+      .prev {
+        height: 40px;
+        width: auto;
+        padding: 0 10px;
+        font-size: 16px;
+      }
+    }
+  }

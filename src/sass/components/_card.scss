@@ -1,0 +1,300 @@
+@use "../abstracts" as *;
+
+.card {
+  position: relative;
+  transition: 0.3s;
+
+  .pic {
+    height: 285px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .content {
+    background: #F4F5F7;
+    padding: 16px 16px 20px 16px;
+    @include flexbox(column, start, start);
+    gap: 8px;
+
+    h3 {
+      font-family: Poppins;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 29px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #3A3A3A;
+    }
+
+    p {
+      font-family: Poppins;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #898989;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .prices {
+      width: 100%;
+      @include flexbox(row, space-between, center);
+
+      .new-price {
+        font-family: Poppins;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 30px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #3A3A3A;
+      }
+
+      .old-price {
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #B0B0B0;
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  .discount {
+    top: 24px;
+    right: 24px;
+    background: #E97171;
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    @include flexbox(row, center, center);
+
+    span {
+      font-family: Poppins;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: white;
+    }
+  }
+
+  .new {
+    top: 24px;
+    right: 24px;
+    background: #2EC1AC;
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    @include flexbox(row, center, center);
+
+    span {
+      font-family: Poppins;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: white;
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    background: #00000055;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    display: none;
+    transition: 0.3s;
+
+    button {
+      background-color: #fff;
+      padding: 12px 55px;
+      border: none;
+      cursor: pointer;
+      font-family: Poppins;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #B88E2F;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: #e5e5e5;
+      }
+    }
+
+    .action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+
+      a {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: white;
+      }
+    }
+  }
+
+  &:hover {
+    .overlay {
+      display: flex;
+    }
+  }
+
+  @media(max-width: 1000px) {
+    .pic {
+      height: 230px;
+    }
+
+    .content {
+      p {
+        font-size: 16px;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-height: 120%;
+      }
+
+      h3 {
+        font-size: 18px;
+        line-height: 120%;
+      }
+
+      .prices {
+        flex-wrap: wrap;
+
+        .new-price {
+          font-size: 16px;
+          line-height: 120%;
+
+        }
+
+        .old-price {
+          font-size: 14px;
+          line-height: 120%;
+
+        }
+      }
+    }
+
+    .discount,
+    .new {
+      width: 40px;
+      height: 40px;
+      top: 20px;
+      right: 20px;
+
+      span {
+        font-size: 14px;
+        line-height: 0;
+      }
+    }
+
+    .overlay {
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        line-height: 120%;
+      }
+
+      .action {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  }
+
+  @media(max-width: 768px) {
+    .pic {
+      height: 170px;
+    }
+
+    .content {
+      padding: 10px;
+
+      h3 {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      .prices {
+        flex-direction: column;
+        align-items: start;
+        gap: 3px;
+
+        .new-price {
+          font-size: 14px;
+        }
+
+        .old-price {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .new,
+    .discount {
+      width: 35px;
+      height: 35px;
+      top: 15px;
+      right: 15px;
+
+      span {
+        font-size: 12px;
+      }
+    }
+
+    .overlay {
+      flex-direction: column-reverse;
+
+      button {
+        padding: 8px 10px;
+        font-size: 14px;
+      }
+
+      .action {
+        gap: 10px;
+
+        a {
+          font-size: 14px;
+          line-height: 120%;
+        }
+      }
+    }
+  }
+}

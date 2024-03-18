@@ -1,0 +1,60 @@
+#carousel-section {
+  background: #FCF8F3;
+  padding: 44px 0;
+
+  .carousel__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+
+    .left {
+      h2 {
+        font-family: Poppins;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 48px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #333333;
+      }
+
+      p {
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #616161;
+        margin-top: 7px;
+        margin-bottom: 30px;
+      }
+
+      a {
+        padding: 12px 36px;
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: white;
+        background: #B88E2F;
+      }
+    }
+
+    .right {
+      .slick-slider {
+        .slick-list {
+          display: flex !important;
+
+          .slick-track {
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}

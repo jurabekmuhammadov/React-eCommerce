@@ -1,0 +1,14 @@
+@use "../abstracts" as *;
+
+#shop {
+  width: 100%;
+  margin-top: 90px;
+
+  @include media(500px) {
+    margin-top: 70px;
+  }
+
+  @include media(420px) {
+    margin-top: 65px;
+  }
+}

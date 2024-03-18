@@ -1,0 +1,236 @@
+@use "../abstracts" as *;
+
+header {
+  background-color: #fff;
+  height: 90px;
+  box-shadow: 0 0 15px 0 rgb(181, 181, 181);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  .header__container {
+    height: 100%;
+    @include flexbox(row, space-between, center);
+    gap: 50px;
+
+    .logo {
+      a {
+        height: 100%;
+        width: 100%;
+        @include flexbox(row, center, center);
+        gap: 5px;
+
+        img {
+          transition: 0.3s;
+        }
+
+        span {
+          font-family: Montserrat;
+          font-size: 34px;
+          font-weight: 700;
+          line-height: 41px;
+          letter-spacing: 0px;
+          text-align: left;
+          color: black;
+        }
+
+        &:hover {
+          img {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+
+    #navbar {
+      transition: 0.4s;
+      width: 430px;
+      @include flexbox(row, space-between, center);
+
+      a {
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: black;
+        line-height: 2;
+        position: relative;
+
+        &::before {
+          content: '';
+          width: 0;
+          height: 2px;
+          border-radius: 2px;
+          background-color: #000000;
+          position: absolute;
+          bottom: 0px;
+          right: 0;
+          transition: right .4s, width .4s, left .4s;
+        }
+
+        &:hover::before {
+          width: 100%;
+          left: 0;
+        }
+
+      }
+
+      .close-btn {
+        @include flexbox(row, center, center);
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        display: none;
+      }
+    }
+
+    .actions {
+      @include flexbox(row, space-between, center);
+      width: 250px;
+
+      a {
+        padding: 0;
+        @include flexbox(row, space-between, center);
+      }
+
+      .search-btn {
+        padding: 0;
+        @include flexbox(row, center, center);
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+      }
+
+      .open-btn {
+        @include flexbox(row, center, center);
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        display: none;
+      }
+
+    }
+  }
+
+  @include media(768px) {
+    .header__container {
+      .logo {
+        a {
+          span {
+            font-size: 28px;
+          }
+        }
+      }
+
+      #navbar {
+        box-shadow: 0 0 15px 0 rgb(181, 181, 181);
+        padding: 30px 20px;
+        position: fixed;
+        height: 100vh;
+        background-color: #f3f3f3;
+        top: 0;
+        right: 0;
+        width: 40%;
+        flex-direction: column;
+        justify-content: start;
+        align-items: end;
+
+        a {
+          padding: 10px 0 10px 0;
+          text-align: right;
+          font-size: 18px;
+
+          &::before {
+            content: '';
+            width: 0;
+            height: 2px;
+            border-radius: 2px;
+            background-color: #000000;
+            position: absolute;
+            bottom: 10px;
+            right: 0;
+            transition: right .4s, width .4s, left .4s;
+          }
+        }
+
+        .close-btn {
+          display: block;
+          margin-bottom: 20px;
+        }
+      }
+
+      .navbar-close {
+        right: -60% !important;
+      }
+
+      .actions {
+        width: 230px;
+
+        .open-btn {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  @include media(500px) {
+    height: 70px;
+
+    .header__container {
+      .logo {
+        a {
+          span {
+            display: none;
+          }
+        }
+      }
+
+      #navbar {
+        width: 50%;
+      }
+    }
+  }
+
+  @include media(420px) {
+    height: 65px;
+
+    .header__container {
+      .actions {
+        width: 200px;
+
+        a,
+        button {
+          img {
+            width: 25px;
+            height: 25px;
+          }
+        }
+
+        .open-btn {
+          img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+
+      #navbar {
+        padding: 20px;
+
+        a {
+          font-size: 16px;
+        }
+
+        .close-btn {
+          img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+    }
+  }
+}

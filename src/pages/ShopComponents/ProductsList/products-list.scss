@@ -1,0 +1,21 @@
+@use "../../../sass/abstracts" as *;
+
+.products__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 32px;
+  width: 100%;
+
+  @media(max-width: 1000px) {
+    grid-gap: 20px;
+  }
+
+  @media(max-width: 768px) {
+    grid-gap: 10px;
+  }
+
+  @media(max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+}
