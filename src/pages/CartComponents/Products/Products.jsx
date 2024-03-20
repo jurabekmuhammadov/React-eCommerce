@@ -1,35 +1,30 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import "./products.scss";
 import { Link } from "react-router-dom";
 import deletebtn from "../../../assets/icons/delete.svg";
+import { useState } from "react";
 const Products = () => {
-  let cartsFromLocalStorage = JSON.parse(localStorage.getItem("carts")) || [];
-
-  const [products, setProducts] = useState([]);
-
-  const filteredData = cartsFromLocalStorage.filter((item) =>
-    products.some((databaseItem) => databaseItem.id === item.productId)
+  const [carts, setCarts] = useState(
+    JSON.parse(localStorage.getItem("carts")) || []
   );
-  let database = [];
-  const data = filteredData.map((item) => {
-    database = products.find((data) => data.id === item.productId);
-    return database;
-  });
 
-  async function getProducts() {
-    await axios
-      .get(`http://localhost:3000/products`)
-      .then((response) => {
-        setProducts(response.data);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }
-  useEffect(() => {
-    getProducts();
-  }, []);
+  const handleAdd = (id) => {
+    const updatedCarts = carts.map((product) =>
+      product.productId === id
+        ? { ...product, quantity: product.quantity + 1 }
+        : product
+    );
+    setCarts(updatedCarts);
+    localStorage.setItem("carts", JSON.stringify(updatedCarts));
+  };
+  const handleMinus = (id) => {
+    const updatedCarts = carts.map((product) =>
+      product.productId === id && product.quantity > 0
+        ? { ...product, quantity: product.quantity - 1 }
+        : product
+    );
+    setCarts(updatedCarts);
+    localStorage.setItem("carts", JSON.stringify(updatedCarts));
+  };
 
   return (
     <div id="cart-list">
@@ -45,7 +40,7 @@ const Products = () => {
               </tr>
             </thead>
             <tbody>
-              {data.map((pr, index) => (
+              {carts.map((pr, index) => (
                 <tr key={index}>
                   <th className="pic">
                     <div className="picc">
@@ -60,14 +55,16 @@ const Products = () => {
                   </th>
                   <th className="actions">
                     <div className="actionss">
-                      <button>+</button>
-                      <span>{pr.quantity}1</span>
-                      <button>-</button>
+                      <button onClick={() => handleAdd(pr.productId)}>+</button>
+                      <span>{pr.quantity}</span>
+                      <button onClick={() => handleMinus(pr.productId)}>
+                        -
+                      </button>
                     </div>
                   </th>
                   <th className="total">
                     <div className="totall">
-                      <span>Rs. {pr.price}</span>
+                      <span>Rs. {pr.price} </span>
                       <button>
                         <img src={deletebtn} alt="" />
                       </button>

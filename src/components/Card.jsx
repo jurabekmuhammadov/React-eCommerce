@@ -12,9 +12,23 @@ const Card = ({ product, imgUrl }) => {
       (value) => value.productId === id
     );
     if (carts <= 0) {
-      carts = [{ productId: id, quantity: 1 }];
+      carts = [
+        {
+          productId: id,
+          quantity: 1,
+          img: product.img,
+          name: product.name,
+          price: product.price,
+        },
+      ];
     } else if (positionThisProductInCart < 0) {
-      carts.push({ productId: id, quantity: 1 });
+      carts.push({
+        productId: id,
+        quantity: 1,
+        img: product.img,
+        name: product.name,
+        price: product.price,
+      });
     } else {
       carts[positionThisProductInCart].quantity++;
     }
