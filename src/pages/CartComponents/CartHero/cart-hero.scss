@@ -1,0 +1,11 @@
+.banner {
+  @media(max-width: 500px) {
+    padding: 40px 0;
+
+    .content {
+      h1 {
+        font-size: 35px;
+      }
+    }
+  }
+}

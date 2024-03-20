@@ -46,7 +46,7 @@ const Header = ({ handleSearch }) => {
           <Link className="like">
             <img src={likeIcon} alt="" />
           </Link>
-          <Link className="cart">
+          <Link className="cart" to={"/cart"}>
             <img src={cartIcon} alt="" />
           </Link>
           <button className="open-btn" onClick={handleNavbar}>

@@ -4,7 +4,36 @@ import { Link } from "react-router-dom";
 import share from "../assets/icons/share.svg";
 import showMore from "../assets/icons/show-more.svg";
 import like from "../assets/icons/like-smal.svg";
+import { useEffect } from "react";
+
 const Card = ({ product, imgUrl }) => {
+  // const addToCart = (productId) => {
+  //   const Product = product.id === productId ? productId : -1;
+  //   const cartProducts = JSON.parse(localStorage.getItem("carts")) || [];
+  //   const hasProduct = cartProducts.find((pr) => pr.id === productId);
+  //   let newProducts = [];
+  //   if (!hasProduct) {
+  //     newProducts = [...cartProducts, Product];
+  //   }
+
+  //   localStorage.setItem("carts", JSON.stringify(newProducts));
+  // };
+
+  const addToCart = (id) => {
+    let carts = JSON.parse(localStorage.getItem("carts")) || [];
+    let positionThisProductInCart = carts.findIndex(
+      (value) => value.productId === id
+    );
+    if (carts <= 0) {
+      carts = [{ productId: id, quantity: 1 }];
+    } else if (positionThisProductInCart < 0) {
+      carts.push({ productId: id, quantity: 1 });
+    } else {
+      carts[positionThisProductInCart].quantity++;
+    }
+
+    localStorage.setItem("carts", JSON.stringify(carts));
+  };
   return (
     <div className="card">
       <div className="pic">
@@ -33,7 +62,7 @@ const Card = ({ product, imgUrl }) => {
         ""
       )}
       <div className="overlay">
-        <button>Add to cart</button>
+        <button onClick={() => addToCart(product.id)}>Add to cart</button>
         <div className="action">
           <Link>
             <img src={share} alt="" />
@@ -54,7 +83,7 @@ const Card = ({ product, imgUrl }) => {
 };
 Card.propTypes = {
   product: PropTypes.object,
-  imgUrl: PropTypes.string
+  imgUrl: PropTypes.string,
 };
 
 export default Card;
