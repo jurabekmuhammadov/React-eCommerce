@@ -1,5 +1,117 @@
 #tabs {
   margin-top: 48px;
   padding-bottom: 65px;
-  border-bottom: 1px solid #D9D9D9
+  border-bottom: 1px solid #D9D9D9;
+
+  .tabs__container {
+    .react-tabs {
+      .react-tabs__tab-list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+
+        li {
+          font-family: Poppins;
+          font-size: 24px;
+          font-weight: 400;
+          line-height: 36px;
+          text-align: left;
+          color: #9F9F9F;
+          cursor: pointer;
+          outline: none;
+          border: none;
+        }
+
+        .react-tabs__tab--selected {
+          color: black;
+        }
+      }
+
+      .react-tabs__tab-panel {
+        margin-top: 35px;
+
+        .desc {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+
+          p {
+            font-family: Poppins;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            text-align: justified;
+            color: #9F9F9F;
+          }
+        }
+
+        .pics {
+          margin-top: 35px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 30px;
+
+          img {
+            width: 48%;
+          }
+        }
+      }
+    }
+  }
+
+  @media(max-width: 768px) {
+    padding-bottom: 30px;
+
+    .tabs__container {
+      .react-tabs {
+        .react-tabs__tab-list {
+          gap: 30px;
+
+          li {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+
+  @media(max-width: 525px) {
+    padding-bottom: 30px;
+
+    .tabs__container {
+      .react-tabs {
+        .react-tabs__tab-list {
+          justify-content: start;
+          gap: 20px;
+          flex-wrap: wrap;
+
+          li {
+            font-size: 16px;
+            line-height: 120%;
+          }
+        }
+
+        .react-tabs__tab-panel {
+          .desc {
+            gap: 15px;
+
+            p {
+              font-size: 14px;
+              line-height: 130%;
+            }
+          }
+
+          .pics {
+            gap: 15px;
+
+            img {
+              width: 48%;
+            }
+          }
+        }
+      }
+    }
+  }
 }

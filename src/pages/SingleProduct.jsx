@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Product from "./SingleProductsComp/Product/Product";
 import TabsSection from "./SingleProductsComp/Tabs/TabsSection";
+import Related from "./SingleProductsComp/Related/Related";
 const SingleProduct = () => {
   const { productId } = useParams();
 
@@ -31,6 +32,7 @@ const SingleProduct = () => {
       <Path product={product} />
       <Product product={product} />
       <TabsSection product={product} />
+      <Related product={product} />
     </section>
   );
 };

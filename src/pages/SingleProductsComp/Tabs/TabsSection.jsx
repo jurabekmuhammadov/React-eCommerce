@@ -1,4 +1,5 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import PropTypes from "prop-types";
 import "./tabs.scss";
 
 import tabPic1 from "../../../assets/single-product/tab-pic-1.png";
@@ -11,7 +12,7 @@ const TabsSection = ({ product }) => {
           <TabList>
             <Tab>Description</Tab>
             <Tab>Additional Information</Tab>
-            <Tab>Reviews [5]</Tab>
+            <Tab>Reviews [{product.map((pr) => pr.review)}]</Tab>
           </TabList>
 
           <TabPanel>
@@ -79,6 +80,10 @@ const TabsSection = ({ product }) => {
       </div>
     </section>
   );
+};
+
+TabsSection.propTypes = {
+  product: PropTypes.array,
 };
 
 export default TabsSection;
