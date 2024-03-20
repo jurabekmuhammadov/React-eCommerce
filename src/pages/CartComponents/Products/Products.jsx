@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./products.scss";
 import { Link } from "react-router-dom";
+import deletebtn from "../../../assets/icons/delete.svg";
 const Products = () => {
   let cartsFromLocalStorage = JSON.parse(localStorage.getItem("carts")) || [];
 
@@ -47,19 +48,30 @@ const Products = () => {
               {data.map((pr, index) => (
                 <tr key={index}>
                   <th className="pic">
-                    <img src={pr.img} alt="" />
-                    <span>{pr.name}</span>
+                    <div className="picc">
+                      <img src={pr.img} alt="" />
+                      <span>{pr.name}</span>
+                    </div>
                   </th>
                   <th className="price">
-                    <span>{pr.price}</span>
+                    <div className="pricee">
+                      <span>{pr.price}</span>
+                    </div>
                   </th>
                   <th className="actions">
-                    <button>+</button>
-                    <span>{pr.quantity}1</span>
-                    <button>-</button>
+                    <div className="actionss">
+                      <button>+</button>
+                      <span>{pr.quantity}1</span>
+                      <button>-</button>
+                    </div>
                   </th>
                   <th className="total">
-                    <span>Rs. {pr.price}</span>
+                    <div className="totall">
+                      <span>Rs. {pr.price}</span>
+                      <button>
+                        <img src={deletebtn} alt="" />
+                      </button>
+                    </div>
                   </th>
                 </tr>
               ))}
@@ -77,7 +89,7 @@ const Products = () => {
               <h5>Total</h5>
               <span>Rs. 500.00</span>
             </div>
-            <Link>Check Out</Link>
+            <Link className="checkout">Check Out</Link>
           </div>
         </div>
       </div>
