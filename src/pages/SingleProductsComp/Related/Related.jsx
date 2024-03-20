@@ -31,7 +31,7 @@ const Related = ({ product }) => {
         <h1>Related Products</h1>
         <div className="related__products">
           {products.slice(0, 4).map((pr, index) => (
-            <Card key={index} product={pr} />
+            <Card key={index} product={pr} imgUrl={pr.img} />
           ))}
         </div>
         <Link to={"/shop"} className="show-more">

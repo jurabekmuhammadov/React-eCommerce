@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import share from "../assets/icons/share.svg";
 import showMore from "../assets/icons/show-more.svg";
 import like from "../assets/icons/like-smal.svg";
-const Card = ({ product }) => {
+const Card = ({ product, imgUrl }) => {
   return (
     <div className="card">
       <div className="pic">
-        <img src={product.img} alt="" />
+        <img src={imgUrl ? `../../../${product.img}` : product.img} alt="" />
       </div>
       <div className="content">
         <h3>{product.name}</h3>
@@ -54,6 +54,7 @@ const Card = ({ product }) => {
 };
 Card.propTypes = {
   product: PropTypes.object,
+  imgUrl: PropTypes.string
 };
 
 export default Card;
