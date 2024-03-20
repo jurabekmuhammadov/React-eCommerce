@@ -43,29 +43,28 @@ const Products = () => {
                 <th>Subtotal</th>
               </tr>
             </thead>
-            
+            <tbody>
+              {data.map((pr, index) => (
+                <tr key={index}>
+                  <th className="pic">
+                    <img src={pr.img} alt="" />
+                    <span>{pr.name}</span>
+                  </th>
+                  <th className="price">
+                    <span>{pr.price}</span>
+                  </th>
+                  <th className="actions">
+                    <button>+</button>
+                    <span>{pr.quantity}1</span>
+                    <button>-</button>
+                  </th>
+                  <th className="total">
+                    <span>Rs. {pr.price}</span>
+                  </th>
+                </tr>
+              ))}
+            </tbody>
           </table>
-          {data.map((pr, index) => (
-            <div className="item-card" key={index}>
-              <div className="pic">
-                <img src={pr.img} alt="" />
-              </div>
-              <div className="name">
-                <span>{pr.name}</span>
-              </div>
-              <div className="price">
-                <span>{pr.price}</span>
-              </div>
-              <div className="actions">
-                <button>+</button>
-                <span>{pr.quantity}1</span>
-                <button>-</button>
-              </div>
-              <div className="total">
-                <span>Rs.{pr.price}</span>
-              </div>
-            </div>
-          ))}
         </div>
         <div className="right">
           <div className="box">

@@ -7,28 +7,31 @@
       flex-direction: column;
       gap: 20px;
 
-      .item-card {
-        display: flex;
-        align-items: center;
+      // .item-card {
+      //   display: flex;
+      //   align-items: center;
 
-        .pic {
-          img {
-            border-radius: 10px;
-            width: 100px;
-            height: 100px;
-          }
-        }
+      //   .pic {
+      //     img {
+      //       border-radius: 10px;
+      //       width: 100px;
+      //       height: 100px;
+      //     }
+      //   }
 
-        .name {
-          span {
-            font-family: Poppins;
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 24px;
-            text-align: left;
-            color: #9F9F9F;
-          }
-        }
+      //   .name {
+      //     span {
+      //       font-family: Poppins;
+      //       font-size: 16px;
+      //       font-weight: 400;
+      //       line-height: 24px;
+      //       text-align: left;
+      //       color: #9F9F9F;
+      //     }
+      //   }
+      // }
+      table {
+        
       }
     }
 
