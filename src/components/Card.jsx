@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import share from "../assets/icons/share.svg";
-import compare from "../assets/icons/compare.svg";
+import showMore from "../assets/icons/show-more.svg";
 import like from "../assets/icons/like-smal.svg";
 const Card = ({ product }) => {
   return (
@@ -35,9 +35,18 @@ const Card = ({ product }) => {
       <div className="overlay">
         <button>Add to cart</button>
         <div className="action">
-          <Link><img src={share} alt="" />Share</Link>
-          <Link><img src={compare} alt="" />Compare</Link>
-          <Link><img src={like} alt="" />Like</Link>
+          <Link>
+            <img src={share} alt="" />
+            Share
+          </Link>
+          <Link to={`/single-product/${product.id}`}>
+            <img src={showMore} alt="" />
+            More
+          </Link>
+          <Link>
+            <img src={like} alt="" />
+            Like
+          </Link>
         </div>
       </div>
     </div>

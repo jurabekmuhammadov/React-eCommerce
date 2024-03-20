@@ -812,3 +812,17 @@ footer .bottom__container p {
     margin-top: 65px;
   }
 }
+
+#single-product {
+  margin-top: 90px;
+}
+@media (max-width: 500px) {
+  #single-product {
+    margin-top: 70px;
+  }
+}
+@media (max-width: 420px) {
+  #single-product {
+    margin-top: 65px;
+  }
+}

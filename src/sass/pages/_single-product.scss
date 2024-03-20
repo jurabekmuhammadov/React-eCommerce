@@ -1,0 +1,11 @@
+#single-product {
+  margin-top: 90px;
+
+  @media(max-width: 500px) {
+    margin-top: 70px;
+  }
+
+  @media(max-width: 420px) {
+    margin-top: 65px;
+  }
+}

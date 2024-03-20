@@ -3,7 +3,7 @@ import Hero from "./HomeComponents/Hero/Hero";
 import Range from "./HomeComponents/Range/Range";
 import OurProducts from "./HomeComponents/OurProducts/OurProducts";
 import FuniroFurniture from "./HomeComponents/FuniroFurniture.jsx/FuniroFurniture";
-// import Carousel from "./HomeComponents/Carousel/Carousel";
+// import CarouselSection from "./HomeComponents/Carousel/CarouselSection";
 
 const Home = () => {
   return (
@@ -11,7 +11,7 @@ const Home = () => {
       <Hero />
       <Range />
       <OurProducts />
-      {/* <Carousel /> */}
+      {/* <CarouselSection /> */}
       <FuniroFurniture />
     </Fragment>
   );
