@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "./products.scss";
 import { Link } from "react-router-dom";
 const Products = () => {
-  let cartsFromLocalStorage = JSON.parse(localStorage.getItem("carts"));
+  let cartsFromLocalStorage = JSON.parse(localStorage.getItem("carts")) || [];
 
   const [products, setProducts] = useState([]);
 
@@ -15,7 +15,6 @@ const Products = () => {
     database = products.find((data) => data.id === item.productId);
     return database;
   });
-  // console.log(data);
 
   async function getProducts() {
     await axios
@@ -35,6 +34,17 @@ const Products = () => {
     <div id="cart-list">
       <div className="container2 cart-list-container">
         <div className="left">
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+              </tr>
+            </thead>
+            
+          </table>
           {data.map((pr, index) => (
             <div className="item-card" key={index}>
               <div className="pic">

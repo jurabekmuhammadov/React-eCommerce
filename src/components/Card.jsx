@@ -4,21 +4,8 @@ import { Link } from "react-router-dom";
 import share from "../assets/icons/share.svg";
 import showMore from "../assets/icons/show-more.svg";
 import like from "../assets/icons/like-smal.svg";
-import { useEffect } from "react";
 
 const Card = ({ product, imgUrl }) => {
-  // const addToCart = (productId) => {
-  //   const Product = product.id === productId ? productId : -1;
-  //   const cartProducts = JSON.parse(localStorage.getItem("carts")) || [];
-  //   const hasProduct = cartProducts.find((pr) => pr.id === productId);
-  //   let newProducts = [];
-  //   if (!hasProduct) {
-  //     newProducts = [...cartProducts, Product];
-  //   }
-
-  //   localStorage.setItem("carts", JSON.stringify(newProducts));
-  // };
-
   const addToCart = (id) => {
     let carts = JSON.parse(localStorage.getItem("carts")) || [];
     let positionThisProductInCart = carts.findIndex(
@@ -33,6 +20,7 @@ const Card = ({ product, imgUrl }) => {
     }
 
     localStorage.setItem("carts", JSON.stringify(carts));
+    window.location.reload(true);
   };
   return (
     <div className="card">

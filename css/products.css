@@ -11,6 +11,7 @@
   align-items: center;
 }
 #cart-list .cart-list-container .left .item-card .pic img {
+  border-radius: 10px;
   width: 100px;
   height: 100px;
 }

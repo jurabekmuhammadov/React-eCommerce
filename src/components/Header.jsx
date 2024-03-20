@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import logo from "../assets/icons/logo.svg";
 import accountIcon from "../assets/icons/account.svg";
@@ -10,10 +10,15 @@ import cartIcon from "../assets/icons/cart.svg";
 import openMenuIcon from "../assets/icons/menu-open.svg";
 import closeMenuIcon from "../assets/icons/menu-close.svg";
 const Header = ({ handleSearch }) => {
+  const data = JSON.parse(localStorage.getItem("carts")) || [];
   const [isNavOpen, setNav] = useState(false);
   const handleNavbar = () => {
     setNav(!isNavOpen);
   };
+
+  useEffect(() => {
+    data;
+  }, []);
 
   return (
     <header>
@@ -48,6 +53,9 @@ const Header = ({ handleSearch }) => {
           </Link>
           <Link className="cart" to={"/cart"}>
             <img src={cartIcon} alt="" />
+            <span className={`${data.length ? "badge" : ""}`}>
+              {data.length ? data.length : ""}
+            </span>
           </Link>
           <button className="open-btn" onClick={handleNavbar}>
             <img src={openMenuIcon} alt="" />

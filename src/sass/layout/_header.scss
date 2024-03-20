@@ -94,6 +94,26 @@ header {
       a {
         padding: 0;
         @include flexbox(row, space-between, center);
+        padding: 5px;
+      }
+
+      .cart {
+        position: relative;
+
+        .badge {
+          position: absolute;
+          top: 0;
+          right: 0;
+          padding: 0px 5px;
+          border-radius: 10px;
+          background-color: rgb(255, 95, 95);
+          font-family: Poppins;
+          font-size: 14px;
+          font-weight: 400;
+          // line-height: 24px;
+          text-align: left;
+          color: #000000;
+        }
       }
 
       .search-btn {

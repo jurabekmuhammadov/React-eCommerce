@@ -543,6 +543,23 @@ header .header__container .actions a {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 5px;
+}
+header .header__container .actions .cart {
+  position: relative;
+}
+header .header__container .actions .cart .badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0px 5px;
+  border-radius: 10px;
+  background-color: rgb(255, 95, 95);
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  color: #000000;
 }
 header .header__container .actions .search-btn {
   padding: 0;
